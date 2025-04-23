@@ -1,12 +1,29 @@
-# React + Vite
+# Er Was Eens 🐉🧚🏽🐲🧌
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web platform to organize, bookmark, and manage your wardrobe online. Reduce clutter, save time, and keep your clothes off the floor for a more efficient and sustainable lifestyle.
 
-Currently, two official plugins are available:
+Repository link: [Front-end,Sophia]
+(https://github.com/EHB-MCT/cp-frontend-SophiaRahmoun)
+(https://silver-doodle-w6ozpok.pages.github.io/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Used Sources 🗃️
 
-## Expanding the ESLint configuration
+- [List-style](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+- [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)
+- [tag-aside](https://www.w3schools.com/tags/tag_aside.asp)
+- [MakingDivVisible](https://stackoverflow.com/questions/9456289/how-to-make-a-div-visible-and-invisible-with-javascript)
+- [toggleHide](https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp)
+- [Click](https://stackoverflow.com/questions/13184461/javascript-user-click)
+- [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
+- [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
+- [global-attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable)
+- [global-Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+- [image-upload](building-an-image-upload-feature-with-javascript)
+- [cloudinary-implement](https://cloudinary.com/guides/front-end-development/)
+- [ChatGPT](https://chatgpt.com/share/676616b3-7b60-8006-bd1f-53a891e8f53f)
+- [ChatGPT](https://chatgpt.com/share/676616e3-6e00-8006-a5f3-a37e771d91d3)
+- [ChatGPT](https://chatgpt.com/share/676618b2-8be8-8006-90df-273f563d5608)
+- [ChatGPT](https://chatgpt.com/c/674e1d4f-7b14-8006-a8a0-3e7f31b48c70)

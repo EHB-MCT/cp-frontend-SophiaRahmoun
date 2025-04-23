@@ -2,10 +2,10 @@ import React from "react";
 import StoryCard from "./StoryCard";
 
 const stories = [
-	{ name: "Sophia Rahmoun", story: "Little Red Riding Hood" },
-	{ name: "Sophia Rahmoun", story: "The Little Mermaid" },
-	{ name: "Sophia Rahmoun", story: "Hansel and Gretel" },
-	{ name: "Sophia Rahmoun", story: "The Fairy Boy of Leith" },
+	{ name: "Sophia Rahmoun", story: "Little Red Riding Hood", genres: "Fairy Tale" },
+	{ name: "Sophia Rahmoun", story: "The Little Mermaid", genres: "Fairy Tale" },
+	{ name: "Sophia Rahmoun", story: "Hansel and Gretel", genres: "Fairy Tale" },
+	{ name: "Sophia Rahmoun", story: "The Fairy Boy of Leith", genres: "Fairy Tale" },
 ];
 
 const StoryList = () => {
