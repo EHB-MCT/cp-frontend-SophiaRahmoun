@@ -1,6 +1,11 @@
 import React from "react";
 import StoryList from "./components/StoryList";
 import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+
+<BrowserRouter basename="/cp-frontend-SophiaRahmoun/">
+	<App />
+</BrowserRouter>;
 
 function App() {
 	return (
