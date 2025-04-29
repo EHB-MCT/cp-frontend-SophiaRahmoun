@@ -3,6 +3,8 @@ import StoryList from "./components/StoryList";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import SearchFilter from "./components/SearchFilter";
+import Stories from "./components/Stories";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 <BrowserRouter basename="/cp-frontend-SophiaRahmoun/">
 	<App />
@@ -34,12 +36,12 @@ function App() {
 				<h1>Hot Today</h1>
 				<StoryList />
 				<h1>Stories</h1>
-				<StoryList />
+				<Stories />
 			</div>
 			<footer className="app-footer">
 				<p>&copy; 2023 Sophia Rahmoun</p>
 				<p>All rights reserved</p>
-				</footer>
+			</footer>
 		</div>
 	);
 }

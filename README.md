@@ -9,7 +9,7 @@ Repository link: [Front-end,Sophia]
 ## Used Sources 🗃️
 
 - [List-style](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style)
-
+- [Carousel] (https://react-bootstrap.netlify.app/docs/components/carousel/) used in src/components/Storylist.jsx
 ---
 
 - [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)

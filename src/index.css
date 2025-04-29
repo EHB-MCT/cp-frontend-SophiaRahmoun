@@ -66,6 +66,59 @@ h1 {
 
 .nav-list a {
 	text-decoration: none;
-	color: inherit; /* hérite du parent, donc pas de bleu par défaut */
+	color: inherit;
 }
 
+.stories-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+}
+
+.story-card-narrow {
+	padding: 2%;
+	width: 200px;
+	background-color: #fff;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
+}
+
+.story-card-narrow:hover {
+	transform: scale(1.05);
+}
+
+.story-image {
+	width: 80%;
+	height: 140px;
+	object-fit: cover;
+}
+/* Personnalisation des flèches */
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+	width: 5%;
+	background: none;
+	opacity: 1;
+	color: #e61232;
+	border-color: #e61232;
+}
+
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+	background-color: #333;
+	border-radius: 50%;
+	padding: 10px;
+	border: #e61232;
+	background-size: 80%;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.custom-carousel .carousel-control-prev {
+	left: -40px;
+}
+
+.custom-carousel .carousel-control-next {
+	right: -40px;
+}
