@@ -33,7 +33,7 @@ const StoryList = () => {
 			{groupedStories.map((group, index) => (
 				<Carousel.Item key={index}>
 					<div className="story-grid">
-						{stories.map((s, index) => (
+						{group.map((s, index) => (
 							<StoryCard key={index} name={s.name} story={s.story} />
 						))}
 					</div>

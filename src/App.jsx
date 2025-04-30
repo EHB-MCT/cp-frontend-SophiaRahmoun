@@ -4,7 +4,8 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import SearchFilter from "./components/SearchFilter";
 import Stories from "./components/Stories";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./components/Footer";
 
 <BrowserRouter basename="/cp-frontend-SophiaRahmoun/">
 	<App />
@@ -39,8 +40,7 @@ function App() {
 				<Stories />
 			</div>
 			<footer className="app-footer">
-				<p>&copy; 2023 Sophia Rahmoun</p>
-				<p>All rights reserved</p>
+				<Footer />
 			</footer>
 		</div>
 	);

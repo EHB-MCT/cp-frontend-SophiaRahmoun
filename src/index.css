@@ -9,7 +9,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 20px;
+	gap: 70px;
 	padding: 30px;
 }
 
@@ -68,6 +68,51 @@ h1 {
 	text-decoration: none;
 	color: inherit;
 }
+.footer {
+	background-color: #f7f7f7;
+	padding: 40px 20px;
+	display: flex;
+	text-align: center;
+	background-color: #ebf5ec;
+	margin-top: 10%;
+}
+.footer-content {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 40px;
+	max-width: 80%;
+	margin: auto;
+}
+
+.footer-text {
+	max-width: 700px;
+	margin: 0 auto 20px;
+	font-size: 1rem;
+	color: #333;
+	line-height: 1.6;
+	text-align: left;
+}
+
+.about-button {
+	background-color: #000;
+	color: #fff;
+	border: none;
+	border-radius: 90px;
+	padding: 12px 24px;
+	width: 150px;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+
+.about-button:hover {
+	background-color: #333;
+}
+.footer-text-about {
+	display: flex;
+	flex-direction: column;
+}
 
 .stories-wrapper {
 	display: flex;
@@ -77,12 +122,12 @@ h1 {
 }
 
 .story-card-narrow {
-	padding: 2%;
-	width: 200px;
-	background-color: #fff;
-	border-radius: 12px;
+	padding: 3%;
+	width: 250px;
+	background-color: #ebf5ec;
+	border-radius: 27px;
 	overflow: hidden;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 	transition: transform 0.3s ease;
 }
 
@@ -95,7 +140,7 @@ h1 {
 	height: 140px;
 	object-fit: cover;
 }
-/* Personnalisation des flèches */
+
 .custom-carousel .carousel-control-prev,
 .custom-carousel .carousel-control-next {
 	width: 5%;
