@@ -19,7 +19,7 @@ function App() {
 				<nav className="nav">
 					<ul className="nav-list">
 						<li>
-							<a href="/">SPROOKJES</a>
+							<a href="">SPROOKJES</a>
 						</li>
 						<li>
 							<a href="/stories">MAKING OF</a>
