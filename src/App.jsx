@@ -2,6 +2,7 @@ import React from "react";
 import StoryList from "./components/StoryList";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import { useState } from 'react';
 import SearchFilter from "./components/SearchFilter";
 import Stories from "./components/Stories";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,6 +11,13 @@ import Footer from "./components/Footer";
 <BrowserRouter basename="/cp-frontend-SophiaRahmoun/">
 	<App />
 </BrowserRouter>;
+
+const sprookjesData = {
+	romantiek: ['Belle en het Beest', 'Assepoester'],
+	avontuur: ['Aladdin', 'Robin Hood'],
+	goedvskwaad: ['De Leeuwenkoning', 'Rapunzel'],
+	magie: ['Harry Potter', 'Doornroosje'],
+  };
 
 function App() {
 	return (
