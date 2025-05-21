@@ -1,21 +1,6 @@
 import React from "react";
 import "../index.css";
 
-const stories = [
-	{
-		id: 1,
-		name: "Sophia",
-		title: "Little Red Riding Hood",
-		image: "/images/red.jpg",
-	},
-	{ id: 2, name: "Sophia", title: "Bluebeard", image: "/images/bluebeard.jpg" },
-	{
-		id: 3,
-		name: "Sophia",
-		title: "The 3 Little Pigs",
-		image: "/images/pigs.jpg",
-	},
-];
 
 const Stories = () => {
 	return (

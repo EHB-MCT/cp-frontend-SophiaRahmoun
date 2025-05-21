@@ -8,9 +8,16 @@ import Stories from "./components/Stories";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useNavigate } from "react-router-dom";
+import Sprookjes from "./components/Sprookjes"; 
+
 
 <BrowserRouter basename="/cp-frontend-SophiaRahmoun/">
 	<App />
+	<Routes>
+    <Route path="/" element={<App />} />
+    <Route path="/sprookjes" element={<Sprookjes />} />
+  </Routes>
 </BrowserRouter>;
 
 const genres = [
@@ -26,6 +33,7 @@ const genres = [
 ];
 
 function App() {
+	const navigate = useNavigate();
 	const [selectedGenre, setSelectedGenre] = useState("All");
 
 	return (
@@ -43,7 +51,7 @@ function App() {
 									{genres.map((genre, i) => (
 										<Dropdown.Item
 											key={i}
-											onClick={() => setSelectedGenre(genre)}
+											onClick={() => navigate(`/sprookjes?genre=${genre}`)}
 										>
 											{genre}
 										</Dropdown.Item>
