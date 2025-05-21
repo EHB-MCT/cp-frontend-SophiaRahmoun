@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import SearchFilter from "./SearchFilter";
-import Stories from "./Stories";
-import "index.css";
+import SearchFilter from "../components/SearchFilter";
+import Stories from "../components/Stories";
+import Footer from "../components/Footer";
+import Navigation from "../components/Navigation";
+import "../index.css";
+
 
 const genres = [
 	"All",
@@ -65,24 +68,36 @@ const Sprookjes = () => {
 	});
 
 	return (
-		<div className="sprookjes-page">
-			<div className="filter-bar">
-				{genres.map((genre, i) => (
-					<button
-						key={i}
-						className={`genre-button ${
-							selectedGenre === genre ? "active" : ""
-						}`}
-						onClick={() => setSelectedGenre(genre)}
-					>
-						{genre}
-					</button>
-				))}
-				<SearchFilter onSearch={setSearchQuery} />
-			</div>
+        <div className="sprookjes-page">
+        <Navigation /> 
+        <main className="wrapper">
+          <h1>Sprookjes per genre</h1>
+          <div className="genre-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
+            {genres.map((genre, i) => (
+              <button
+                key={i}
+                className={`story-card-narrow genre-button ${
+                  selectedGenre === genre ? "active" : ""
+                }`}
+                onClick={() => setSelectedGenre(genre)}
+              >
+                {genre}
+              </button>
+            ))}
+          </div>
 
-			<Stories stories={filteredStories} />
-		</div>
+          <div className="stories-wrapper" style={{ marginTop: "50px" }}>
+					{filteredStories.map((story) => (
+						<div key={story.id} className="story-card-narrow">
+							<img src={story.image} alt={story.title} className="story-image" />
+							<h3 className="story-person">{story.name}</h3>
+							<p className="story-title">{story.title}</p>
+						</div>
+					))}
+				</div>
+        </main>
+        <Footer />
+      </div>
 	);
 };
 

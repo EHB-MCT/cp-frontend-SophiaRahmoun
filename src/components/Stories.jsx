@@ -1,5 +1,6 @@
 import React from "react";
 import "../index.css";
+import stories from "../data/stories.js";
 
 
 const Stories = () => {

@@ -12,7 +12,7 @@ Repository link: [Front-end,Sophia]
 - [Carousel] (https://react-bootstrap.netlify.app/docs/components/carousel/) used in src/components/Storylist.jsx
 - [Drop Down Button](https://react-bootstrap.netlify.app/docs/components/dropdowns/) 
 - [Uploading images in Cloudinary](https://cloudinary.com/documentation/upload_images)
-
+- [React Router](https://www.w3schools.com/react/react_router.asp) used in src/main.jsx
 
 
 - [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)

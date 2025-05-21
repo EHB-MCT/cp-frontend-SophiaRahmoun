@@ -1,24 +1,16 @@
 import React from "react";
 import StoryList from "./components/StoryList";
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
 import { useState } from "react";
-import SearchFilter from "./components/SearchFilter";
+import SearchFilter from "../src/components/SearchFilter";
 import Stories from "./components/Stories";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer";
+import Navigation from "./components/Navigation";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
-import Sprookjes from "./components/Sprookjes"; 
+import Sprookjes from "./pages/Sprookjes";
 
-
-<BrowserRouter basename="/cp-frontend-SophiaRahmoun/">
-	<App />
-	<Routes>
-    <Route path="/" element={<App />} />
-    <Route path="/sprookjes" element={<Sprookjes />} />
-  </Routes>
-</BrowserRouter>;
 
 const genres = [
 	"All",
@@ -38,39 +30,7 @@ function App() {
 
 	return (
 		<div className="app">
-			<header className="app-header">
-				<img src="./src/assets/logo.png" alt="Logo" className="logo" />
-				<nav className="nav">
-					<ul className="nav-list">
-						<li>
-							<Dropdown>
-								<Dropdown.Toggle variant="dark" id="dropdown-basic">
-									Sprookjes
-								</Dropdown.Toggle>
-								<Dropdown.Menu>
-									{genres.map((genre, i) => (
-										<Dropdown.Item
-											key={i}
-											onClick={() => navigate(`/sprookjes?genre=${genre}`)}
-										>
-											{genre}
-										</Dropdown.Item>
-									))}
-								</Dropdown.Menu>
-							</Dropdown>
-						</li>
-						<li>
-							<a href="/stories">MAKING OF</a>
-						</li>
-						<li>
-							<a href="/about">ABOUT US</a>
-						</li>
-						<li>
-							<SearchFilter />
-						</li>
-					</ul>
-				</nav>
-			</header>
+			<Navigation />
 			<div className="wrapper">
 				<h1>Hot Today</h1>
 				<StoryList />
