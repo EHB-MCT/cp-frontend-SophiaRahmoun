@@ -10,7 +10,10 @@ Repository link: [Front-end,Sophia]
 
 - [List-style](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style)
 - [Carousel] (https://react-bootstrap.netlify.app/docs/components/carousel/) used in src/components/Storylist.jsx
----
+- [Drop Down Button](https://react-bootstrap.netlify.app/docs/components/dropdowns/) 
+- [Uploading images in Cloudinary](https://cloudinary.com/documentation/upload_images)
+
+
 
 - [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)
 - [tag-aside](https://www.w3schools.com/tags/tag_aside.asp)
