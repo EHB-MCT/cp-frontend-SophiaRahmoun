@@ -13,7 +13,9 @@ Repository link: [Front-end,Sophia]
 - [Drop Down Button](https://react-bootstrap.netlify.app/docs/components/dropdowns/) 
 - [Uploading images in Cloudinary](https://cloudinary.com/documentation/upload_images)
 - [React Router](https://www.w3schools.com/react/react_router.asp) used in src/main.jsx
-
+- [Text Decoration](https://www.w3schools.com/css/css_link.asp) used in index.css 
+- [Adobe Firefly] used for generating images, elements used in the story 
+- [ChatGPT](https://chatgpt.com/share/682f106b-b8c8-8006-aab9-813a511ebfcd) used for generatin images, elements ,... used in story 
 
 - [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)
 - [tag-aside](https://www.w3schools.com/tags/tag_aside.asp)

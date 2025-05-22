@@ -18,6 +18,7 @@ const AboutUs = () => {
               Ze combineren techniek en creativiteit om een interactieve webervaring te creëren met diepte-effecten en animaties.  
               Zo leren ze React-componenten, state management en visuele effecten toepassen om hun sprookjeswereld tot leven te brengen.
             </p>
+            <a href="/cp-frontend-SophiaRahmoun/sprookjes?genre=All" className="read-more-button">Bekijk alle sprookjes</a>
           </div>
           <div className="student-grid">
             <img src="public/assets/student1.jpg" alt="student1" className="student1"/>
