@@ -7,7 +7,7 @@ import App from './App.jsx'
 import Sprookjes from './pages/Sprookjes.jsx'
 import AboutUs from './pages/AboutUs.jsx';
 import MakingOf from './pages/MakingOf.jsx';
-
+import FairyTale from "./pages/FairyTale.jsx";
 
 ReactDom.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,6 +17,7 @@ ReactDom.createRoot(document.getElementById('root')).render(
         <Route path="/sprookjes" element={<Sprookjes />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/makingof" element={<MakingOf />} />
+        <Route path="/fairytale" element={<FairyTale />} />
       </Routes>
     </BrowserRouter>  </React.StrictMode>,
 )

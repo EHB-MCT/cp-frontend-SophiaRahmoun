@@ -16,6 +16,9 @@ Repository link: [Front-end,Sophia]
 - [Text Decoration](https://www.w3schools.com/css/css_link.asp) used in index.css 
 - [Adobe Firefly] used for generating images, elements used in the story 
 - [ChatGPT](https://chatgpt.com/share/682f106b-b8c8-8006-aab9-813a511ebfcd) used for generatin images, elements ,... used in story 
+- [line spacing](https://www.shecodes.io/athena/51992-how-to-change-line-spacing-in-css#:~:text=To%20change%20the%20line%20spacing,decrease%20the%20space%20between%20lines.) used in css
+- [onScroll un React](https://stackoverflow.com/questions/29725828/update-style-of-a-component-onscroll-in-react-js) used in FairyTale
+
 
 - [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)
 - [tag-aside](https://www.w3schools.com/tags/tag_aside.asp)
