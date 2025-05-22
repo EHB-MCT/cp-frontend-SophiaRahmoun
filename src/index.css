@@ -433,7 +433,7 @@ h1 {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	pointer-events: none;
+	pointer-events: auto;
 }
 
 .layer-back {
@@ -484,7 +484,6 @@ h1 {
 
 .scene-2 {
 	position: relative;
-	height: 200vh;
 
 	overflow: hidden;
 }
@@ -493,30 +492,36 @@ h1 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 100%;
+	height: 100vh;
 	width: 100%;
 	object-fit: cover;
-	z-index: 1;
+	z-index: 3;
 }
 
 .scene2-basket {
 	position: absolute;
 	left: 20%;
-	top:20%;
+	top: 60%;
 	width: 15%;
 	opacity: 0;
+	pointer-events: none;
 	transition: opacity 0.8s ease-out;
-	z-index: 3;
+	z-index: 5;
+}
+.scene2-basket.visible {
+	opacity: 1;
+	pointer-events: auto;
 }
 
 .scene2-text {
 	position: absolute;
-	top: 20%;
+	top: 60%;
 	left: 70%;
 	transform: translateX(-50%);
 	width: 100%;
 	opacity: 0;
-	color: #AF4241;
+	color: #af4241;
+	pointer-events: none;
 	z-index: 4;
 	transition: opacity 1s ease-out;
 	text-align: center;
@@ -538,4 +543,52 @@ h1 {
 	font-style: italic;
 	margin-top: 1rem;
 	font-size: 1.1rem;
+}
+.scene3-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.scene-3 {
+	position: relative;
+	height: 200vh;
+	overflow: hidden;
+	z-index: 2;
+	background-color: #00050b;
+}
+
+.scene3-path {
+	transform: rotate(-38deg);
+	width: 70%;
+	position: absolute;
+	top: -20%;
+	left: 15%;
+	z-index: 1;
+	position: fixed;
+}
+
+.scene3-girl {
+	position: absolute;
+	top: 10%;
+	left: 5%;
+	width: 100px;
+	z-index: 2;
+}
+
+.scene3-girl-walk {
+	position: fixed;
+	top: 10%;
+	left: 5%;
+	width: 120px;
+	z-index: 3;
+	transform: translate(0, 0);
+	transition: transform 0.1s ease-out;
+	will-change: transform;
+	pointer-events: none;
 }
