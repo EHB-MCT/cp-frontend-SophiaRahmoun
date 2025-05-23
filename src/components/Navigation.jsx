@@ -21,7 +21,7 @@ const Navigation = () => {
 
   return (
     <header className="app-header">
-      <img src="./public/assets/logo.png" alt="Logo" className="logo" onClick={() => navigate("/")}
+      <img src="/cp-frontend-SophiaRahmoun/assets/logo.png" alt="Logo" className="logo" onClick={() => navigate("/")}
         style={{ cursor: "pointer" }} />
       <nav className="nav">
         <ul className="nav-list">

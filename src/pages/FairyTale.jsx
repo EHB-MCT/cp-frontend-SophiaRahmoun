@@ -242,6 +242,32 @@ const FairyTale = () => {
 					/>
 				)}
 			</section>
+			
+			{/* SCENE 4 */}
+			<section className="scene scene-4">
+            <div className="scene4-gradient"></div>
+
+				<img
+					src="/cp-frontend-SophiaRahmoun/assets/scene6-background.png"
+					alt="background"
+					className="scene4-back"
+				/>
+				<img
+					src="/cp-frontend-SophiaRahmoun/assets/scene5-bed.png"
+					alt="bed"
+					className="scene4-bed"
+				/>
+				<img
+					src="/cp-frontend-SophiaRahmoun/assets/scene5-wolf.png"
+					alt="wolf"
+					className="scene4-wolf"
+				/>
+				<img
+					src="/cp-frontend-SophiaRahmoun/assets/scene5-lrrh-watching.png"
+					alt="lrrh"
+					className="scene4-lrrh"
+				/>
+			</section>
 		</div>
 	);
 };

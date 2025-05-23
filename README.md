@@ -18,7 +18,7 @@ Repository link: [Front-end,Sophia]
 - [ChatGPT](https://chatgpt.com/share/682f106b-b8c8-8006-aab9-813a511ebfcd) used for generatin images, elements ,... used in story 
 - [line spacing](https://www.shecodes.io/athena/51992-how-to-change-line-spacing-in-css#:~:text=To%20change%20the%20line%20spacing,decrease%20the%20space%20between%20lines.) used in css
 - [onScroll un React](https://stackoverflow.com/questions/29725828/update-style-of-a-component-onscroll-in-react-js) used in FairyTale
-
+- [React Refresh Page Not Found](https://www.youtube.com/watch?v=fuGu-Ponjf8&ab_channel=Emmi)
 
 - [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)
 - [tag-aside](https://www.w3schools.com/tags/tag_aside.asp)

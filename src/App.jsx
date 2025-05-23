@@ -11,7 +11,6 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
 import Sprookjes from "./pages/Sprookjes";
 
-
 const genres = [
 	"All",
 	"fantasie",
