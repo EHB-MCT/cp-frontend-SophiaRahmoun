@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 
 const FairyTale = () => {
 	const navigate = useNavigate();
-	const [showPath, setShowPath] = useState(false);
-	const [showAnimatedGirl, setShowAnimatedGirl] = useState(false);
+	const [showScene3Elements, setShowScene3Elements] = useState(false);
+	const [showCottage, setShowCottage] = useState(false);
 	const [showBasket, setShowBasket] = useState(false);
+	const bushRef = useRef(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -18,6 +19,7 @@ const FairyTale = () => {
 			const textBlock = document.getElementById("scene2-text");
 			const basket = document.querySelector(".scene2-basket");
 			const walkingGirl = document.querySelector(".scene3-girl-walk");
+			const scene3 = document.getElementById("scene-3");
 
 			if (back) back.style.transform = `translateY(${scrollY * 0.1}px)`;
 			if (middle) middle.style.transform = `translateY(${scrollY * 0.6}px)`;
@@ -36,28 +38,83 @@ const FairyTale = () => {
 				setShowBasket(false);
 			}
 
-			if (walkingGirl && showAnimatedGirl) {
-				const scene3 = document.getElementById("scene-3");
+			if (scene3 && walkingGirl) {
 				const sceneTop = scene3.offsetTop;
 				const sceneHeight = scene3.offsetHeight;
+				const windowBottom = scrollY + window.innerHeight;
 
 				const progress = Math.min(
 					1,
-					Math.max(0, (scrollY - sceneTop) / (sceneHeight - window.innerHeight))
+					Math.max(0, (windowBottom - sceneTop) / sceneHeight)
 				);
 
-				const maxTranslateX = 60; // vw
-				const maxTranslateY = 60; // vh
+				walkingGirl.style.transform = `translateX(${progress * 60}vw)`;
+			}
 
-				walkingGirl.style.transform = `translate(${
-					maxTranslateX * progress
-				}vw, ${maxTranslateY * progress}vh)`;
+			if (scene3) {
+				const sceneTop = scene3.offsetTop;
+				const sceneHeight = scene3.offsetHeight;
+
+				if (scrollY + window.innerHeight > sceneTop + sceneHeight * 0.25) {
+					setShowScene3Elements(true);
+				}
+
+				if (scrollY + window.innerHeight > sceneTop + sceneHeight * 0.85) {
+					setShowCottage(true);
+				} else {
+					setShowCottage(false);
+				}
 			}
 		};
 
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, [showAnimatedGirl]);
+	}, []);
+
+	useEffect(() => {
+		if (!showScene3Elements) return;
+
+		const bush = bushRef.current;
+		if (!bush) {
+			return;
+		}
+
+		let isDragging = false;
+		let offsetX = 0;
+		let offsetY = 0;
+
+		const startDrag = (e) => {
+			isDragging = true;
+			const rect = bush.getBoundingClientRect();
+			offsetX = e.clientX - rect.left;
+			offsetY = e.clientY - rect.top;
+			bush.style.cursor = "grabbing";
+			bush.style.transition = "none";
+		};
+
+		const onDrag = (e) => {
+			if (!isDragging) return;
+			const x = e.clientX - offsetX;
+			const y = e.clientY - offsetY;
+			bush.style.left = `${x}px`;
+			bush.style.top = `${y}px`;
+		};
+
+		const stopDrag = () => {
+			isDragging = false;
+			bush.style.cursor = "grab";
+		};
+
+		bush.addEventListener("mousedown", startDrag);
+		window.addEventListener("mousemove", onDrag);
+		window.addEventListener("mouseup", stopDrag);
+
+		return () => {
+			bush.removeEventListener("mousedown", startDrag);
+			window.removeEventListener("mousemove", onDrag);
+			window.removeEventListener("mouseup", stopDrag);
+		};
+	}, [showScene3Elements]);
 
 	return (
 		<div className="fairytale-wrapper">
@@ -105,12 +162,6 @@ const FairyTale = () => {
 						src="/cp-frontend-SophiaRahmoun/assets/scene1-basket.png"
 						className={`scene2-basket ${showBasket ? "visible" : ""}`}
 						alt="basket"
-						style={{ pointerEvents: "auto" }}
-						onClick={() => {
-							console.log("clicked!");
-
-							setShowPath(true);
-						}}
 					/>
 
 					<div id="scene2-text" className="scene2-text">
@@ -125,36 +176,52 @@ const FairyTale = () => {
 					</div>
 				</div>
 			</section>
-
+			<section className="scene scene-gradient">
+				<img
+					src="/cp-frontend-SophiaRahmoun/assets/scene3-gradient.svg"
+					className="scene3-gradient"
+					alt="gradient"
+				/>
+			</section>
 			{/* SCENE 3 */}
 			<section id="scene-3" className="scene scene-3">
 				<img
-					src="/cp-frontend-SophiaRahmoun/assets/scene2-backgr.png"
-					className="scene3-bg"
+					src="/cp-frontend-SophiaRahmoun/assets/scene3-back.png"
+					className="scene3-back"
 					alt="background"
 				/>
 
-				{showPath && (
-					<img
-						src="/cp-frontend-SophiaRahmoun/assets/scene1-way.png"
-						alt="path"
-						className="scene3-path"
-					/>
+				{showScene3Elements && (
+					<>
+						<img
+							src="/cp-frontend-SophiaRahmoun/assets/scene2-bush.png"
+							alt="bush"
+							className="scene3-bush"
+							id="scene3-bush"
+							draggable="false"
+							style={{ top: "400px", left: "280px" }}
+							ref={bushRef}
+						/>
+						<img
+							src="/cp-frontend-SophiaRahmoun/assets/scene2-wolf.png"
+							alt="wolf"
+							className="scene3-wolf"
+						/>
+						<img
+							src="/cp-frontend-SophiaRahmoun/assets/scene2-walkinggirl.gif"
+							alt="walking girl"
+							className="scene3-girl-walk"
+							id="scene3-girl-walk"
+						/>
+					</>
 				)}
 
-				{showPath && !showAnimatedGirl && (
+				{showCottage && (
 					<img
-						src="/cp-frontend-SophiaRahmoun/assets/scene2-girl-walk1.png"
-						alt="girl static"
-						className="scene3-girl"
-					/>
-				)}
-
-				{showAnimatedGirl && (
-					<img
-						src="/cp-frontend-SophiaRahmoun/assets/scene2-walkinggirl.gif"
-						alt="girl walking"
-						className="scene3-girl-walk"
+						src="/cp-frontend-SophiaRahmoun/assets/scene3-cottage.png"
+						alt="cottage"
+						className="scene3-cottage"
+						id="scene3-cottage"
 					/>
 				)}
 			</section>

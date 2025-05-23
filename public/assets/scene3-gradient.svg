@@ -1,19 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1128.59 1771">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: url(#linear-gradient);
-        stroke: #000;
-        stroke-miterlimit: 10;
-      }
-    </style>
-    <linearGradient id="linear-gradient" x1="-261" y1="727.21" x2="1509" y2="727.21" gradientTransform="translate(-59.71 158.29)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#010006"/>
-      <stop offset="1" stop-color="#2a4439"/>
-    </linearGradient>
-  </defs>
-  <g id="Layer_1-2" data-name="Layer 1">
-    <rect class="cls-1" x="-320.71" y="321.71" width="1770" height="1127.59" transform="translate(1449.79 321.21) rotate(90)"/>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2_00000059283407562145507780000000952862114965470636_"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1128.6 1771"
+	 style="enable-background:new 0 0 1128.6 1771;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);stroke:#000000;stroke-miterlimit:10;}
+</style>
+<g id="Layer_1-2">
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-724.425" y1="742.9591" x2="-68.7019" y2="742.9591" gradientTransform="matrix(6.123234e-17 1 1 -6.123234e-17 -181.5 710.5)">
+		<stop  offset="0" style="stop-color:#010006"/>
+		<stop  offset="1" style="stop-color:#2A4439"/>
+	</linearGradient>
+	<rect x="-13.9" y="-13.9" class="st0" width="1150.8" height="655.7"/>
+</g>
 </svg>
