@@ -20,6 +20,8 @@ Repository link: [Front-end,Sophia]
 - [onScroll un React](https://stackoverflow.com/questions/29725828/update-style-of-a-component-onscroll-in-react-js) used in FairyTale
 - [React Refresh Page Not Found](https://www.youtube.com/watch?v=fuGu-Ponjf8&ab_channel=Emmi)
 - [Remove default link color in CSS](https://stackoverflow.com/questions/6722467/how-do-i-remove-the-default-link-color-of-the-html-hyperlink-a-tag) used in index.css
+- [Recat Icons] (https://react-icons.github.io/react-icons/) used to implement icons 
+
 
 - [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)
 - [tag-aside](https://www.w3schools.com/tags/tag_aside.asp)

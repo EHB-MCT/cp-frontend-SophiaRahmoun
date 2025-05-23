@@ -4,6 +4,7 @@ import SearchFilter from "../components/SearchFilter";
 import Stories from "../components/Stories";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
+import MakingOfTemplate from "../components/MakingOfTemplate";
 import "../index.css";
 
 const genres = [
@@ -14,7 +15,7 @@ const genres = [
 	"romantiek",
 	"magie",
 	"mythologie",
-	"dierenverhaal",
+	"dieren",
 ];
 
 function useQuery() {
@@ -26,15 +27,23 @@ const Sprookjes = () => {
 	const [selectedGenre, setSelectedGenre] = useState("All");
 	const [searchQuery, setSearchQuery] = useState("");
 	const [allStories, setAllStories] = useState([]);
+	const [selectedStory, setSelectedStory] = useState(null);
 
 	useEffect(() => {
+		const genreFromQuery = query.get("genre");
+		if (genreFromQuery) {
+			setSelectedGenre(genreFromQuery);
+		}
 		fetch(
 			"https://raw.githubusercontent.com/EHB-MCT/cp-frontend-MaximWesterbeek/refs/heads/main/course-project/public/api/fairytaleList.json"
 		)
 			.then((res) => res.json())
 			.then((data) => setAllStories(data))
 			.catch((err) => console.error("Error while fetching:", err));
-	}, []);
+	}, [location.search]);
+	const handleStoryClick = (story) => {
+		setSelectedStory(story);
+	};
 
 	const filteredStories = allStories.filter((story) => {
 		const genre = story.genre || "";
@@ -53,6 +62,7 @@ const Sprookjes = () => {
 			<Navigation />
 			<main className="wrapper">
 				<h1>Sprookjes per genre</h1>
+
 				<div
 					className="genre-buttons"
 					style={{
@@ -75,12 +85,15 @@ const Sprookjes = () => {
 					))}
 				</div>
 
-				<div className="stories-wrapper" style={{ marginTop: "50px" }}>
+				<SearchFilter onSearch={setSearchQuery} />
+
+
+				<div className="stories-wrapper" style={{ marginTop: "30px" }}>
 					{filteredStories.map((story) => (
 						<div
 							key={story.id}
 							className="story-card-narrow"
-							onClick={() => handleClick(story.fairytaleLink, story.id)}
+							onClick={() => handleStoryClick(story)}
 							style={{ cursor: "pointer" }}
 						>
 							<img
@@ -99,6 +112,14 @@ const Sprookjes = () => {
 				</div>
 			</main>
 			<Footer />
+			{selectedStory && (
+				<div className="popup-overlay">
+					<MakingOfTemplate
+						story={selectedStory}
+						onClose={() => setSelectedStory(null)}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

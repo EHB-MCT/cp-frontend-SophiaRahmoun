@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../index.css";
 import stories from "../data/stories.js";
 
-const Stories = () => {
+const Stories = ({ searchQuery =""}) => {
 	const [stories, setStories] = useState([]);
 	const [visibleCount, setVisibleCount] = useState(6);
 	const navigate = useNavigate();
@@ -18,6 +18,9 @@ const Stories = () => {
 			.then((data) => setStories(data))
 			.catch((err) => console.error("Error while fetching :", err));
 	}, []);
+	const filteredStories = stories.filter((story) =>
+		story.fairytale?.toLowerCase().includes(searchQuery.toLowerCase())
+	);
 	const showMoreButton = true;
 
 	const handleClick = (fairytaleLink, id) => {
@@ -31,8 +34,7 @@ const Stories = () => {
 		setVisibleCount(stories.length);
 	};
 
-	const visibleStories = stories.slice(0, visibleCount);
-
+	const visibleStories = filteredStories.slice(0, visibleCount);
 	return (
 		<div className="stories-wrapper">
 			{visibleStories.map((story) => (
