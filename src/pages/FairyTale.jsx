@@ -8,6 +8,7 @@ const FairyTale = () => {
 	const [showCottage, setShowCottage] = useState(false);
 	const [showBasket, setShowBasket] = useState(false);
 	const bushRef = useRef(null);
+	const [doorOpen, setDoorOpen] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -45,7 +46,7 @@ const FairyTale = () => {
 
 				const progress = Math.min(
 					1,
-					Math.max(0, (windowBottom - sceneTop) / sceneHeight)
+					Math.max(0, (windowBottom - sceneTop) / (sceneHeight * 0.4))
 				);
 
 				walkingGirl.style.transform = `translateX(${progress * 60}vw)`;
@@ -190,6 +191,10 @@ const FairyTale = () => {
 					className="scene3-back"
 					alt="background"
 				/>
+				<p className={`bush-text ${showScene3Elements ? "visible" : ""}`}>
+					<span className="bush-text-b">B</span>ehind the green... <br />
+					something breathes.
+				</p>
 
 				{showScene3Elements && (
 					<>
@@ -199,7 +204,7 @@ const FairyTale = () => {
 							className="scene3-bush"
 							id="scene3-bush"
 							draggable="false"
-							style={{ top: "400px", left: "280px" }}
+							style={{ top: "620px", left: "320px" }}
 							ref={bushRef}
 						/>
 						<img
@@ -222,6 +227,18 @@ const FairyTale = () => {
 						alt="cottage"
 						className="scene3-cottage"
 						id="scene3-cottage"
+					/>
+				)}
+				{showScene3Elements && (
+					<img
+						src={
+							doorOpen
+								? "/cp-frontend-SophiaRahmoun/assets/scene4-dooropening.gif"
+								: "/cp-frontend-SophiaRahmoun/assets/scene4-doorclosed.png"
+						}
+						alt="door"
+						className="scene3-door"
+						onClick={() => setDoorOpen(true)}
 					/>
 				)}
 			</section>
