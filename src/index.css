@@ -136,7 +136,7 @@ h1 {
 .stories-wrapper {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 40px;
+	gap: 25px;
 	justify-content: center;
 }
 
