@@ -118,7 +118,11 @@ h1 {
 	background-color: #000;
 	color: #fff;
 	border: none;
+	font-family: "Bungee", sans-serif;
+	text-decoration: none;
 	border-radius: 90px;
+	cursor: pointer;
+
 	padding: 12px 24px;
 	width: 150px;
 	cursor: pointer;
@@ -136,7 +140,7 @@ h1 {
 .stories-wrapper {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 25px;
+	gap: 20px;
 	justify-content: center;
 }
 
@@ -189,11 +193,11 @@ h1 {
 }
 
 .custom-carousel .carousel-control-prev {
-	left: -40px;
+	left: 50px;
 }
 
 .custom-carousel .carousel-control-next {
-	right: -40px;
+	right: 50px;
 }
 
 .genre-button {
@@ -437,6 +441,7 @@ h1 {
 	top: 20px;
 	left: 20px;
 	z-index: 100;
+
 	background: black;
 	color: white;
 	padding: 10px 20px;

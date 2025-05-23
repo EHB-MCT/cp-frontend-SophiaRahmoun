@@ -1,5 +1,6 @@
 import React from "react";
 import "../index.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
 	return (
@@ -15,7 +16,9 @@ const Footer = () => {
 						zijn?
 					</p>
 
-					<button className="about-button">About us</button>
+					<button className="about-button">
+						<Link to="/about">About Us</Link>
+					</button>
 				</div>
 			</div>
 		</footer>

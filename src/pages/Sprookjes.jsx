@@ -6,98 +6,100 @@ import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import "../index.css";
 
-
 const genres = [
 	"All",
 	"fantasie",
 	"avontuur",
 	"horror",
-	"fantasy",
-	"folklore",
-	"magisch",
-	"muzikaal",
-	"historical",
+	"romantiek",
+	"magie",
+	"mythologie",
+	"dierenverhaal",
 ];
 
-
 function useQuery() {
-    return new URLSearchParams(useLocation().search);
-  }
+	return new URLSearchParams(useLocation().search);
+}
 
 const Sprookjes = () => {
-    const query = useQuery();
+	const query = useQuery();
 	const [selectedGenre, setSelectedGenre] = useState("All");
 	const [searchQuery, setSearchQuery] = useState("");
 	const [allStories, setAllStories] = useState([]);
 
 	useEffect(() => {
-		// fake data --> will change to API later !!
-		setAllStories([
-			{
-				id: 1,
-				name: "Sophia Rahmoun",
-				title: "Little Red Riding Hood",
-				genre: "fantasy, folklore",
-				image: "/images/red.jpg",
-			},
-			{
-				id: 2,
-				name: "Sophia Rahmoun",
-				title: "Bluebeard",
-				genre: "horror",
-				image: "/images/bluebeard.jpg",
-			},
-			{
-				id: 3,
-				name: "Sophia Rahmoun",
-				title: "The 3 Little Pigs",
-				genre: "fantasie, avontuur",
-				image: "/images/pigs.jpg",
-			},
-		]);
+		fetch(
+			"https://raw.githubusercontent.com/EHB-MCT/cp-frontend-MaximWesterbeek/refs/heads/main/course-project/public/api/fairytaleList.json"
+		)
+			.then((res) => res.json())
+			.then((data) => setAllStories(data))
+			.catch((err) => console.error("Error while fetching:", err));
 	}, []);
 
 	const filteredStories = allStories.filter((story) => {
+		const genre = story.genre || "";
+		const title = story.fairytale || "";
 		const matchesGenre =
 			selectedGenre === "All" ||
-			story.genre.toLowerCase().includes(selectedGenre.toLowerCase());
-		const matchesSearch = story.title
+			genre.toLowerCase().includes(selectedGenre.toLowerCase());
+		const matchesSearch = title
 			.toLowerCase()
 			.includes(searchQuery.toLowerCase());
 		return matchesGenre && matchesSearch;
 	});
 
 	return (
-        <div className="sprookjes-page">
-        <Navigation /> 
-        <main className="wrapper">
-          <h1>Sprookjes per genre</h1>
-          <div className="genre-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
-            {genres.map((genre, i) => (
-              <button
-                key={i}
-                className={`story-card-narrow genre-button ${
-                  selectedGenre === genre ? "active" : ""
-                }`}
-                onClick={() => setSelectedGenre(genre)}
-              >
-                {genre}
-              </button>
-            ))}
-          </div>
+		<div className="sprookjes-page">
+			<Navigation />
+			<main className="wrapper">
+				<h1>Sprookjes per genre</h1>
+				<div
+					className="genre-buttons"
+					style={{
+						display: "flex",
+						flexWrap: "wrap",
+						gap: "10px",
+						justifyContent: "center",
+					}}
+				>
+					{genres.map((genre, i) => (
+						<button
+							key={i}
+							className={`story-card-narrow genre-button ${
+								selectedGenre === genre ? "active" : ""
+							}`}
+							onClick={() => setSelectedGenre(genre)}
+						>
+							{genre}
+						</button>
+					))}
+				</div>
 
-          <div className="stories-wrapper" style={{ marginTop: "50px" }}>
+				<div className="stories-wrapper" style={{ marginTop: "50px" }}>
 					{filteredStories.map((story) => (
-						<div key={story.id} className="story-card-narrow">
-							<img src={story.image} alt={story.title} className="story-image" />
-							<h3 className="story-person">{story.name}</h3>
-							<p className="story-title">{story.title}</p>
+						<div
+							key={story.id}
+							className="story-card-narrow"
+							onClick={() => handleClick(story.fairytaleLink, story.id)}
+							style={{ cursor: "pointer" }}
+						>
+							<img
+								src={story.imgThumbnail}
+								alt={story.fairytale}
+								className="story-image"
+							/>
+							<div className="card-text">
+								<h3 className="story-person">{story.nameStudent}</h3>
+								<p className="story-title">{story.fairytale}</p>
+								<p className="story-genre">{story.genre}</p>
+							</div>
+							<span className="story-arrow">→</span>
 						</div>
 					))}
 				</div>
-        </main>
-        <Footer />
-      </div>
+			</main>
+			<Footer />
+		</div>
 	);
 };
 
