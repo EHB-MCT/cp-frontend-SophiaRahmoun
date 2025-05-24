@@ -80,42 +80,11 @@ function App() {
 			<footer className="app-footer">
 				<Footer />
 			</footer>
-			{selectedStory ? (
+			{selectedStory && (
 				<MakingOfTemplate
 					story={selectedStory}
 					onClose={() => setSelectedStory(null)}
 				/>
-			) : (
-				<>
-					<div className="wrapper">
-						<h1>Hot Today</h1>
-						<StoryList />
-						<SearchFilter onSearch={setSearchQuery} />
-						<h1>Stories</h1>
-						<div className="stories-wrapper" style={{ marginTop: "30px" }}>
-							{filteredStories.map((story) => (
-								<div
-									key={story.id}
-									className="story-card-narrow"
-									onClick={() => handleStoryClick(story)}
-									style={{ cursor: "pointer" }}
-								>
-									<img
-										src={story.imgThumbnail || "/fallback.png"}
-										alt={story.fairytale}
-										className="story-image"
-									/>
-									<div className="card-text">
-										<h3 className="story-person">{story.nameStudent}</h3>
-										<p className="story-title">{story.fairytale}</p>
-										<p className="story-genre">{story.genre}</p>
-									</div>
-									<span className="story-arrow">→</span>
-								</div>
-							))}
-						</div>
-					</div>
-				</>
 			)}
 		</div>
 	);

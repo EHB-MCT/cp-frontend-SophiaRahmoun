@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
+import InkDrop from "../components/InkDrop";
 
 const FairyTale = () => {
 	const navigate = useNavigate();
@@ -9,6 +10,11 @@ const FairyTale = () => {
 	const [showBasket, setShowBasket] = useState(false);
 	const bushRef = useRef(null);
 	const [doorOpen, setDoorOpen] = useState(false);
+	const wolfRef = useRef(null);
+	const lrrhRef = useRef(null);
+	const [showInk, setShowInk] = useState(false);
+	const fadeRef = useRef(null);
+	const [showHand, setShowHand] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -66,6 +72,28 @@ const FairyTale = () => {
 					setShowCottage(false);
 				}
 			}
+			if (lrrhRef.current) {
+				const oscillation = Math.sin(scrollY / 50) * 5;
+				lrrhRef.current.style.transform = `translateX(${oscillation}px)`;
+			}
+
+			if (wolfRef.current) {
+				if (scrollY > 5300) {
+					wolfRef.current.style.transform = "translateX(90px) rotate(15deg)";
+				} else {
+					wolfRef.current.style.transform = "translateX(0) rotate(0)";
+				}
+			}
+
+			if (fadeRef.current) {
+				if (scrollY > 5700) {
+					fadeRef.current.style.opacity = 1;
+					setShowInk(true);
+				} else {
+					fadeRef.current.style.opacity = 0;
+					setShowInk(false);
+				}
+			}
 		};
 
 		window.addEventListener("scroll", handleScroll);
@@ -91,6 +119,7 @@ const FairyTale = () => {
 			offsetY = e.clientY - rect.top;
 			bush.style.cursor = "grabbing";
 			bush.style.transition = "none";
+			e.preventDefault();
 		};
 
 		const onDrag = (e) => {
@@ -122,7 +151,6 @@ const FairyTale = () => {
 			<button className="back-button" onClick={() => navigate("/")}>
 				Going back
 			</button>
-
 			{/* SCENE 1 */}
 			<section id="scene-1" className="scene scene-1">
 				<div className="title-gothic">
@@ -149,7 +177,6 @@ const FairyTale = () => {
 					className="layer layer-front"
 				/>
 			</section>
-
 			{/* SCENE 2 */}
 			<section id="scene-2" className="scene scene-2">
 				<img
@@ -163,13 +190,21 @@ const FairyTale = () => {
 						src="/cp-frontend-SophiaRahmoun/assets/scene1-basket.png"
 						className={`scene2-basket ${showBasket ? "visible" : ""}`}
 						alt="basket"
+						onClick={() => setShowHand(true)}
 					/>
+					{showHand && (
+						<img
+							src="/cp-frontend-SophiaRahmoun/assets/scene2-handclosed.png"
+							alt="hand"
+							className="scene2-hand"
+						/>
+					)}
 
 					<div id="scene2-text" className="scene2-text">
-						<p className="scene2-i">I</p>
 						<p className="scene2-normal">
-							In the heart of a darkening forest, <br />a red-cloaked girl
-							clutched a basket of sweet offerings.
+							<span className="scene2-i">I</span>n the heart of a darkening
+							forest, <br />a red-cloaked girl clutched a basket of sweet
+							offerings.
 						</p>
 						<p className="scene2-quote">
 							“Go straight to your grandmother’s house... and speak to no one.”
@@ -242,10 +277,9 @@ const FairyTale = () => {
 					/>
 				)}
 			</section>
-			
 			{/* SCENE 4 */}
 			<section className="scene scene-4">
-            <div className="scene4-gradient"></div>
+				<div className="scene4-gradient"></div>
 
 				<img
 					src="/cp-frontend-SophiaRahmoun/assets/scene6-background.png"
@@ -258,16 +292,23 @@ const FairyTale = () => {
 					className="scene4-bed"
 				/>
 				<img
-					src="/cp-frontend-SophiaRahmoun/assets/scene5-wolf.png"
+					src="/cp-frontend-SophiaRahmoun/assets/scene5-wolfraisinghand.png"
 					alt="wolf"
 					className="scene4-wolf"
+					ref={wolfRef}
 				/>
 				<img
 					src="/cp-frontend-SophiaRahmoun/assets/scene5-lrrh-watching.png"
 					alt="lrrh"
 					className="scene4-lrrh"
+					ref={lrrhRef}
 				/>
 			</section>
+			<div
+				ref={fadeRef}
+				className="fade-out-black"
+				style={{ opacity: showInk ? 1 : 0 }}
+			/>
 		</div>
 	);
 };
