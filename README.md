@@ -21,7 +21,7 @@ Repository link: [Front-end,Sophia]
 - [React Refresh Page Not Found](https://www.youtube.com/watch?v=fuGu-Ponjf8&ab_channel=Emmi)
 - [Remove default link color in CSS](https://stackoverflow.com/questions/6722467/how-do-i-remove-the-default-link-color-of-the-html-hyperlink-a-tag) used in index.css
 - [Recat Icons] (https://react-icons.github.io/react-icons/) used to implement icons 
-- [tsParticles](https://particles.js.org/)
+- [Using Sound](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) used in Fairytale.jsx 
 
 - [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)
 - [tag-aside](https://www.w3schools.com/tags/tag_aside.asp)

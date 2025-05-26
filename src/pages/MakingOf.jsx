@@ -9,7 +9,7 @@ const MakingOf = () => {
 		<div className="making-of-page">
 			<Navigation />
 			<main className="wrapper">
-				<h1 className="making-of-title">Making Of</h1>
+				<h1 className="standard-title">Making Of</h1>
 
 				<div className="making-banner-wrapper">
 					<img
@@ -55,7 +55,7 @@ const MakingOf = () => {
 					</div>
 				</div>
 
-				<h1 className="extra-title">Extra Informatie</h1>
+				<h1 className="standard-title">Extra images</h1>
 
 				<div className="extras-wrapper">
 					<div className="extra-block">
@@ -63,21 +63,18 @@ const MakingOf = () => {
 							src="https://ehb-mct.github.io/cp-frontend-SophiaRahmoun/assets/extra1_sophia.png"
 							alt="extra 1"
 						/>
-						<p>text 1</p>
 					</div>
 					<div className="extra-block">
 						<img
 							src="https://ehb-mct.github.io/cp-frontend-SophiaRahmoun/assets/extra2_sophia.jpg"
 							alt="extra 2"
 						/>
-						<p>texy 2</p>
 					</div>
 					<div className="extra-block">
 						<img
 							src="https://ehb-mct.github.io/cp-frontend-SophiaRahmoun/assets/extra3_sophia.jpg"
 							alt="extra 3"
 						/>
-						<p>text 3</p>
 					</div>
 				</div>
 			</main>

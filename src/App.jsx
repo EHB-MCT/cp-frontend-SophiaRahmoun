@@ -50,32 +50,14 @@ function App() {
 		<div className="app">
 			<Navigation />
 			<div className="wrapper">
-				<h1>Hot Today</h1>
+				<h1 className="standard-title">Hot Today</h1>
 				<StoryList />
 				<SearchFilter onSearch={setSearchQuery} />
-				<h1>Stories</h1>
-				<div className="stories-wrapper" style={{ marginTop: "30px" }}>
-					{filteredStories.map((story) => (
-						<div
-							key={story.id}
-							className="story-card-narrow"
-							onClick={() => handleStoryClick(story)}
-							style={{ cursor: "pointer" }}
-						>
-							<img
-								src={story.imgThumbnail || "/fallback.png"}
-								alt={story.fairytale}
-								className="story-image"
-							/>
-							<div className="card-text">
-								<h3 className="story-person">{story.nameStudent}</h3>
-								<p className="story-title">{story.fairytale}</p>
-								<p className="story-genre">{story.genre}</p>
-							</div>
-							<span className="story-arrow">→</span>
-						</div>
-					))}
-				</div>
+				<h1 className="standard-title">Stories</h1>
+				<Stories
+					searchQuery={searchQuery}
+					onStoryClick={setSelectedStory}
+				/>{" "}
 			</div>
 			<footer className="app-footer">
 				<Footer />

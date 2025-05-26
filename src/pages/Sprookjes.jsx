@@ -61,7 +61,7 @@ const Sprookjes = () => {
 		<div className="sprookjes-page">
 			<Navigation />
 			<main className="wrapper">
-				<h1>Sprookjes per genre</h1>
+				<h1 className="standard-title">Sprookjes per genre</h1>
 
 				<div
 					className="genre-buttons"

@@ -19,7 +19,15 @@ const StoryCard = ({ name, story, genre, image, id, fairytaleLink }) => {
 			onClick={handleClick}
 			style={{ cursor: "pointer" }}
 		>
-			<img src={image} alt={story} className="story-image" />
+			<img
+				src={image}
+				alt={story}
+				className="story-image"
+				onError={(e) => {
+					e.target.onerror = null;
+					e.target.src = fallbackImg;
+				}}
+			/>
 			<div className="card-text">
 				<h3 className="story-person">{name}</h3>
 				<p className="story-title">{story}</p>

@@ -15,6 +15,12 @@ const FairyTale = () => {
 	const [showInk, setShowInk] = useState(false);
 	const fadeRef = useRef(null);
 	const [showHand, setShowHand] = useState(false);
+	const [showFinalGif, setShowFinalGif] = useState(false);
+	const [gifTriggered, setGifTriggered] = useState(false);
+	const [gifDone, setGifDone] = useState(false);
+	const [showTheEnd, setShowTheEnd] = useState(false);
+	const [bushMoved, setBushMoved] = useState(false);
+	const scene4Ref = useRef(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -78,27 +84,57 @@ const FairyTale = () => {
 			}
 
 			if (wolfRef.current) {
-				if (scrollY > 5300) {
+				if (scrollY > 5800) {
 					wolfRef.current.style.transform = "translateX(90px) rotate(15deg)";
 				} else {
 					wolfRef.current.style.transform = "translateX(0) rotate(0)";
 				}
 			}
 
+			const pageBottom = window.innerHeight + scrollY;
+			const pageHeight = document.body.scrollHeight;
+
 			if (fadeRef.current) {
-				if (scrollY > 5700) {
-					fadeRef.current.style.opacity = 1;
+				if (pageBottom > pageHeight - 200) {
 					setShowInk(true);
 				} else {
-					fadeRef.current.style.opacity = 0;
 					setShowInk(false);
+					setShowFinalGif(false);
 				}
 			}
+			if (gifDone) {
+				setTimeout(() => {
+					setShowTheEnd(true);
+				}, 500);
+			}
+			if (scene4Ref.current && fadeRef.current) {
+				const scene4Bottom =
+					scene4Ref.current.offsetTop + scene4Ref.current.offsetHeight;
+				const windowBottom = scrollY + window.innerHeight;
+
+				if (windowBottom >= scene4Bottom - 100) {
+					setShowInk(true);
+				} else {
+					setShowInk(false);
+					setShowFinalGif(false);
+				}
+			}
+			fadeRef.current.addEventListener("transitionend", () => {
+				if (!gifTriggered) {
+					setGifTriggered(true);
+					setTimeout(() => {
+						setShowFinalGif(true);
+						setTimeout(() => {
+							setGifDone(true);
+						}, 4200);
+					}, 1000);
+				}
+			});
 		};
 
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+	}, [gifDone]);
 
 	useEffect(() => {
 		if (!showScene3Elements) return;
@@ -111,7 +147,6 @@ const FairyTale = () => {
 		let isDragging = false;
 		let offsetX = 0;
 		let offsetY = 0;
-
 		const startDrag = (e) => {
 			isDragging = true;
 			const rect = bush.getBoundingClientRect();
@@ -125,7 +160,7 @@ const FairyTale = () => {
 		const onDrag = (e) => {
 			if (!isDragging) return;
 			const x = e.clientX - offsetX;
-			const y = e.clientY - offsetY;
+			const y = e.clientY + offsetY;
 			bush.style.left = `${x}px`;
 			bush.style.top = `${y}px`;
 		};
@@ -239,8 +274,8 @@ const FairyTale = () => {
 							className="scene3-bush"
 							id="scene3-bush"
 							draggable="false"
-							style={{ top: "620px", left: "320px" }}
 							ref={bushRef}
+							onClick={() => setBushMoved(true)}
 						/>
 						<img
 							src="/cp-frontend-SophiaRahmoun/assets/scene2-wolf.png"
@@ -278,14 +313,9 @@ const FairyTale = () => {
 				)}
 			</section>
 			{/* SCENE 4 */}
-			<section className="scene scene-4">
+			<section className="scene scene-4" ref={scene4Ref}>
 				<div className="scene4-gradient"></div>
 
-				<img
-					src="/cp-frontend-SophiaRahmoun/assets/scene6-background.png"
-					alt="background"
-					className="scene4-back"
-				/>
 				<img
 					src="/cp-frontend-SophiaRahmoun/assets/scene5-bed.png"
 					alt="bed"
@@ -309,6 +339,38 @@ const FairyTale = () => {
 				className="fade-out-black"
 				style={{ opacity: showInk ? 1 : 0 }}
 			/>
+			{showFinalGif && !gifDone && (
+				<img
+					src="/cp-frontend-SophiaRahmoun/assets/final-blood dripping.gif"
+					alt="blood dripping"
+					className="final-blood-gif"
+				/>
+			)}
+			{gifDone && (
+				<img
+					src="/cp-frontend-SophiaRahmoun/assets/final-blood-lastframe.png"
+					alt="blood final"
+					className="final-blood-gif"
+				/>
+			)}
+			{showTheEnd && (
+				<div className="the-end-overlay">
+					<h1 className="the-end-title">The End</h1>
+					<button
+						className="rewatch-button"
+						onClick={() => {
+							window.scrollTo({ top: 0, behavior: "smooth" });
+							setShowFinalGif(false);
+							setGifTriggered(false);
+							setGifDone(false);
+							setShowTheEnd(false);
+							setShowInk(false);
+						}}
+					>
+						Rewatch
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };

@@ -44,7 +44,7 @@ const MakingOfTemplate = ({ story, onClose }) => {
 
 					{story.imgsExtra?.length > 0 && (
 						<>
-							<h1 className="extra-title">Extra Informatie</h1>
+							<h1 className="standard-title">Extra Beelden</h1>
 							<div className="extras-wrapper">
 								{story.imgsExtra.map(
 									(img, idx) =>

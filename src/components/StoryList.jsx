@@ -20,9 +20,8 @@ const StoryList = () => {
 		)
 			.then((res) => res.json())
 			.then((data) => {
-				// Mélange les histoires aléatoirement
 				const shuffled = [...data].sort(() => 0.5 - Math.random());
-				setStories(shuffled.slice(0, 6)); // Garde un nombre limité si souhaité
+				setStories(shuffled.slice(0, 6)); 
 			})
 			.catch((err) => console.error("Error while fetching:", err));
 	}, []);

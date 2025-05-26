@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../index.css";
 import stories from "../data/stories.js";
 
-const Stories = ({ searchQuery =""}) => {
+const Stories = ({ searchQuery = "", onStoryClick }) => {
 	const [stories, setStories] = useState([]);
 	const [visibleCount, setVisibleCount] = useState(6);
 	const navigate = useNavigate();
@@ -23,11 +23,13 @@ const Stories = ({ searchQuery =""}) => {
 	);
 	const showMoreButton = true;
 
-	const handleClick = (fairytaleLink, id) => {
-		if (fairytaleLink && fairytaleLink !== "") {
-			window.location.href = fairytaleLink;
+	const handleClick = (story) => {
+		if (story.fairytaleLink && story.fairytaleLink !== "") {
+			window.location.href = story.fairytaleLink;
+		} else if (onStoryClick) {
+			onStoryClick(story);
 		} else {
-			navigate(`/fairytales/${id}`);
+			navigate(`/fairytales/${story.id}`);
 		}
 	};
 	const handleShowMore = () => {
@@ -36,27 +38,34 @@ const Stories = ({ searchQuery =""}) => {
 
 	const visibleStories = filteredStories.slice(0, visibleCount);
 	return (
-		<div className="stories-wrapper">
-			{visibleStories.map((story) => (
-				<div
-					key={story.id}
-					className="story-card-narrow"
-					onClick={() => handleClick(story.fairytaleLink, story.id)}
-					style={{ cursor: "pointer" }}
-				>
-					<img
-						src={story.imgThumbnail}
-						alt={story.fairytale}
-						className="story-image"
-					/>
-					<div className="card-text">
-						<h3 className="story-person">{story.nameStudent}</h3>
-						<p className="story-title">{story.fairytale}</p>
-						<p className="story-genre">{story.genre}</p>
+		<div className="stories-section">
+			<div className="stories-wrapper">
+				{visibleStories.map((story) => (
+					<div
+						key={story.id}
+						className="story-card-narrow"
+						style={{ cursor: "pointer" }}
+						onClick={() => handleClick(story)}
+					>
+						<img
+							src={story.imgThumbnail}
+							alt={story.fairytale}
+							className="story-image"
+							onError={(e) => {
+								e.target.onerror = null;
+								e.target.src = `${import.meta.env.BASE_URL}assets/no-img.png`;
+							}}
+						/>
+						<div className="card-text">
+							<h3 className="story-person">{story.nameStudent}</h3>
+							<p className="story-title">{story.fairytale}</p>
+							<p className="story-genre">{story.genre}</p>
+						</div>
+						{story.fairytaleLink && <span className="story-arrow">→</span>}{" "}
 					</div>
-					{story.fairytaleLink && <span className="story-arrow">→</span>}{" "}
-				</div>
-			))}
+				))}
+			</div>
+
 			{showMoreButton && visibleCount < stories.length && (
 				<div style={{ textAlign: "center", marginTop: "20px" }}>
 					<button className="view-button" onClick={handleShowMore}>

@@ -43,7 +43,7 @@ body {
 	transition: transform 0.2s ease;
 }
 
-h1 {
+h1.standard-title {
 	font-family: "Bungee", sans-serif;
 	font-weight: 400;
 	margin-bottom: 4%;
@@ -87,6 +87,46 @@ h1 {
 .nav-list a {
 	text-decoration: none;
 	color: inherit;
+	align-items: center;
+}
+.nav-list li {
+	display: flex;
+	align-items: center;
+}
+.dropdown-toggle {
+	border: none !important;
+	box-shadow: none !important;
+	color: black !important;
+	background-color: transparent !important;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.dropdown-menu .dropdown-item {
+	font-family: "helvetica", sans-serif;
+	color: #333;
+	transition: color 0.3s;
+}
+
+.dropdown-menu .dropdown-item:hover {
+	color: #e61232;
+	background-color: transparent;
+}
+
+.dropdown-toggle::after {
+	display: inline-block;
+	margin-left: 6px;
+	vertical-align: middle;
+	content: "▾";
+	border: none;
+	font-size: 1rem;
+	color: #333;
+	transition: transform 0.2s ease;
+}
+
+.dropdown-toggle:hover::after {
+	color: #e61232;
+	transform: rotate(180deg);
 }
 .search-container {
 	position: relative;
@@ -139,8 +179,8 @@ h1 {
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	gap: 40px;
-	max-width: 80%;
+	gap: 120px;
+	max-width: 90%;
 	margin: auto;
 }
 
@@ -163,7 +203,7 @@ h1 {
 	cursor: pointer;
 
 	padding: 12px 24px;
-	width: 150px;
+	width: fit-content;
 	cursor: pointer;
 	transition: background 0.3s ease;
 }
@@ -224,12 +264,11 @@ h1 {
 
 .custom-carousel .carousel-control-prev-icon,
 .custom-carousel .carousel-control-next-icon {
-	background-color: #333;
-	border-radius: 50%;
-	padding: 10px;
-	border: #e61232;
+	background-color: red;
+	border-radius: 50px;
+	padding: 20px;
+	border: 10px #e61232;
 	background-size: 80%;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .custom-carousel .carousel-control-prev {
@@ -287,7 +326,7 @@ h1 {
 	background-color: var(--widget-color, #ebf5ec);
 	padding: 12px 42px;
 	width: fit-content;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	border-bottom-left-radius: 16px;
 }
 
 .making-story-section {
@@ -296,7 +335,6 @@ h1 {
 	flex-direction: column;
 	justify-content: space-between;
 	gap: 10px;
-	justify-content: center;
 	margin: 60px 0;
 	flex-direction: row;
 }
@@ -388,6 +426,9 @@ h1 {
 	flex: 1;
 	min-width: 280px;
 	max-width: 50%;
+	gap: 10px;
+	display: flex;
+	flex-direction: column;
 }
 
 .tekst-about h1 {
@@ -645,7 +686,7 @@ h1 {
 }
 .scene3-wolf {
 	position: absolute;
-	top: 20%;
+	top: 21%;
 	left: 22%;
 	width: 13%;
 	height: auto;
@@ -661,17 +702,18 @@ h1 {
 
 .scene3-bush {
 	position: absolute;
-	top: 490px;
-	left: 280px;
-	width: 150px;
+	top: 640px;
+	left: 340px;
+	width: 200px;
 	z-index: 4;
 	cursor: grab;
+	transition: left 0.6s ease-out;
 }
 
 .scene3-girl-walk {
 	position: absolute;
 	top: 20%;
-	left: 6%;
+	left: 14%;
 	width: 250px;
 	z-index: 4;
 	transform: translate(0, 0);
@@ -681,18 +723,9 @@ h1 {
 	will-change: transform;
 }
 
-.scene3-cottage {
-	position: absolute;
-	right: 10%;
-	bottom: 10%;
-	width: 200px;
-	z-index: 5;
-	opacity: 0;
-	transition: opacity 1s ease-in-out;
-}
 .scene-gradient {
 	position: relative;
-	height: 100vh;
+	height: 90vh;
 	overflow: hidden;
 	z-index: 1;
 	margin: 0;
@@ -859,6 +892,68 @@ h1 {
 	}
 	to {
 		transform: translateX(0);
+		opacity: 1;
+	}
+}
+.final-blood-gif {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	z-index: 10000;
+	pointer-events: none;
+}
+
+.the-end-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	z-index: 99999;
+	animation: fadeIn 2s ease-in forwards;
+	pointer-events: auto;
+}
+
+h1.the-end-title {
+	font-family: "gothicus", serif;
+	font-size: 6rem;
+	color: #00131a;
+	margin-bottom: 30px;
+	text-align: center;
+	opacity: 0;
+	animation: fadeIn 3s ease-in forwards;
+}
+
+.rewatch-button {
+	background-color: #00131a;
+	color: white;
+	border: none;
+	padding: 12px 32px;
+	font-size: 1.2rem;
+	font-family: "Bungee", sans-serif;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	opacity: 0;
+	animation: fadeIn 4s ease-in forwards;
+}
+
+.rewatch-button:hover {
+	background-color: #112c33;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
 		opacity: 1;
 	}
 }

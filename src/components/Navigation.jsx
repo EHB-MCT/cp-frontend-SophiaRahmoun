@@ -34,7 +34,7 @@ const Navigation = () => {
 					<li>
 						<Dropdown>
 							<Dropdown.Toggle variant="dark" id="dropdown-basic">
-								Sprookjes
+								  SPROOKJES
 							</Dropdown.Toggle>
 							<Dropdown.Menu>
 								{genres.map((genre, i) => (
