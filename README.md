@@ -1,40 +1,39 @@
 # Er Was Eens 🐉🧚🏽🐲🧌
 
-A web platform to organize, bookmark, and manage your wardrobe online. Reduce clutter, save time, and keep your clothes off the floor for a more efficient and sustainable lifestyle.
+One-page scrolling experience based on the classic fairytale “Little Red Riding Hood”, combining interactive storytelling, animations, and sound. Built with React, React Router, Framer Motion, and custom CSS for parallax effects and dynamic UI. Includes a portal page linking to all class projects.
 
-Repository link: [Front-end,Sophia]
-(https://github.com/EHB-MCT/cp-frontend-SophiaRahmoun)
-(https://silver-doodle-w6ozpok.pages.github.io/)
+> Online link:[Live,Sophia](https://ehb-mct.github.io/cp-frontend-SophiaRahmoun/fairytale)
+> Repository link: [Repository,Sophia]
+> (https://github.com/EHB-MCT/cp-frontend-SophiaRahmoun)
+
+## Getting started 💃
+
+1. git clone https://github.com/EHB-MCT/cp-frontend-SophiaRahmoun
+2. cd cp-frontend-SophiaRahmoun
+3. npm install
+4. npm run dev
+   > ‼️ This project uses Vite + React.
+   > After installing the dependencies, run npm run dev and open http://localhost:5173 in your browser.
 
 ## Used Sources 🗃️
 
 - [List-style](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style)
 - [Carousel] (https://react-bootstrap.netlify.app/docs/components/carousel/) used in src/components/Storylist.jsx
-- [Drop Down Button](https://react-bootstrap.netlify.app/docs/components/dropdowns/) 
+- [Drop Down Button](https://react-bootstrap.netlify.app/docs/components/dropdowns/)
 - [Uploading images in Cloudinary](https://cloudinary.com/documentation/upload_images)
 - [React Router](https://www.w3schools.com/react/react_router.asp) used in src/main.jsx
-- [Text Decoration](https://www.w3schools.com/css/css_link.asp) used in index.css 
-- [Adobe Firefly] used for generating images, elements used in the story 
-- [ChatGPT](https://chatgpt.com/share/682f106b-b8c8-8006-aab9-813a511ebfcd) used for generatin images, elements ,... used in story 
+- [Text Decoration](https://www.w3schools.com/css/css_link.asp) used in index.css
+- [Adobe Firefly] used for generating images, elements used in the story
+- [ChatGPT](https://chatgpt.com/share/682f106b-b8c8-8006-aab9-813a511ebfcd) used for generating images, elements ,... used in story -[ChatGPT](https://chatgpt.com/share/6834fab7-d3bc-8006-8049-75c453a9b186) used for images -[ChatGPT](https://chatgpt.com/share/682f106b-bbc0-8006-97fb-b4bdc39c26a7) used for images
 - [line spacing](https://www.shecodes.io/athena/51992-how-to-change-line-spacing-in-css#:~:text=To%20change%20the%20line%20spacing,decrease%20the%20space%20between%20lines.) used in css
-- [onScroll un React](https://stackoverflow.com/questions/29725828/update-style-of-a-component-onscroll-in-react-js) used in FairyTale
-- [React Refresh Page Not Found](https://www.youtube.com/watch?v=fuGu-Ponjf8&ab_channel=Emmi)
-- [Remove default link color in CSS](https://stackoverflow.com/questions/6722467/how-do-i-remove-the-default-link-color-of-the-html-hyperlink-a-tag) used in index.css
-- [Recat Icons] (https://react-icons.github.io/react-icons/) used to implement icons 
-- [Using Sound](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) used in Fairytale.jsx 
+- [Hooks in React](https://www.w3schools.com/react/react_hooks.asp)
+- [UseEffect](https://react.dev/reference/react/useEffect)
 
-- [writing-mode](https://www.geeksforgeeks.org/css-writing-mode-property/)
-- [tag-aside](https://www.w3schools.com/tags/tag_aside.asp)
-- [MakingDivVisible](https://stackoverflow.com/questions/9456289/how-to-make-a-div-visible-and-invisible-with-javascript)
-- [toggleHide](https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp)
-- [Click](https://stackoverflow.com/questions/13184461/javascript-user-click)
-- [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
-- [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
-- [global-attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable)
-- [global-Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
-- [image-upload](building-an-image-upload-feature-with-javascript)
-- [cloudinary-implement](https://cloudinary.com/guides/front-end-development/)
-- [ChatGPT](https://chatgpt.com/share/676616b3-7b60-8006-bd1f-53a891e8f53f)
-- [ChatGPT](https://chatgpt.com/share/676616e3-6e00-8006-a5f3-a37e771d91d3)
-- [ChatGPT](https://chatgpt.com/share/676618b2-8be8-8006-90df-273f563d5608)
-- [ChatGPT](https://chatgpt.com/c/674e1d4f-7b14-8006-a8a0-3e7f31b48c70)
+- [onScroll un React](https://stackoverflow.com/questions/29725828/update-style-of-a-component-onscroll-in-react-js) used in FairyTale
+- [React Refresh Page Not Found](https://www.youtube.com/watch?v=fuGu-Ponjf8&ab_channel=Emmi) used to handle 404 error
+- [Remove default link color in CSS](https://stackoverflow.com/questions/6722467/how-do-i-remove-the-default-link-color-of-the-html-hyperlink-a-tag) used in index.css
+- [UseRef Hook](https://www.w3schools.com/react/react_useref.asp)
+- [Recat Icons](https://react-icons.github.io/react-icons/) used to implement search icon in SearchFilter component
+- [Using Sound](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) used in Fairytale.jsx to add knocking sound
+- [Framer Motion](https://www.npmjs.com/package/framer-motion) used to animate in FairyTale.jsx
+- [ChatGPT](https://chatgpt.com/share/6834fb86-1638-8006-82ab-c39cfd8c5cae) used to handle errors, small code snippets, help structuring.

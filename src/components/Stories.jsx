@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../index.css";
-import stories from "../data/stories.js";
 
 const Stories = ({ searchQuery = "", onStoryClick }) => {
 	const [stories, setStories] = useState([]);
@@ -24,9 +23,7 @@ const Stories = ({ searchQuery = "", onStoryClick }) => {
 	const showMoreButton = true;
 
 	const handleClick = (story) => {
-		if (story.fairytaleLink && story.fairytaleLink !== "") {
-			window.location.href = story.fairytaleLink;
-		} else if (onStoryClick) {
+		if (onStoryClick) {
 			onStoryClick(story);
 		} else {
 			navigate(`/fairytales/${story.id}`);
@@ -48,9 +45,13 @@ const Stories = ({ searchQuery = "", onStoryClick }) => {
 						onClick={() => handleClick(story)}
 					>
 						<img
-							src={story.imgThumbnail}
-							alt={story.fairytale}
 							className="story-image"
+							src={
+								story.imgThumbnail && story.imgThumbnail.trim() !== ""
+									? story.imgThumbnail
+									: `${import.meta.env.BASE_URL}assets/no-img.png`
+							}
+							alt={story.fairytale}
 							onError={(e) => {
 								e.target.onerror = null;
 								e.target.src = `${import.meta.env.BASE_URL}assets/no-img.png`;

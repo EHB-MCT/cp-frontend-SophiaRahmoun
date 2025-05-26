@@ -7,9 +7,7 @@ import Stories from "./components/Stories";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
-import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
-import Sprookjes from "./pages/Sprookjes";
 import { useEffect } from "react";
 import MakingOfTemplate from "./components/MakingOfTemplate";
 

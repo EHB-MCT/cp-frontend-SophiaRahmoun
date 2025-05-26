@@ -26,7 +26,10 @@ const MakingOfTemplate = ({ story, onClose }) => {
 						</div>
 						<div className="making-story-image-area">
 							<img
-								src={story.imgThumbnail}
+								src={
+									story.imgThumbnail ||
+									`${import.meta.env.BASE_URL}assets/no-img2.png`
+								}
 								alt="Cover"
 								className="story-cover"
 							/>

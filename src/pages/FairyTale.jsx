@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
-import InkDrop from "../components/InkDrop";
+import { motion } from "framer-motion";
 
 const FairyTale = () => {
 	const navigate = useNavigate();
@@ -21,11 +21,15 @@ const FairyTale = () => {
 	const [showTheEnd, setShowTheEnd] = useState(false);
 	const [bushMoved, setBushMoved] = useState(false);
 	const scene4Ref = useRef(null);
+	const doorKnockAudioRef = useRef(null);
+	const [doorClicked, setDoorClicked] = useState(false);
+	const [showKnockText, setShowKnockText] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollY = window.scrollY;
 
+			let lastScrollY = window.scrollY;
 			const back = document.getElementById("intro-back");
 			const middle = document.getElementById("intro-middle");
 			const front = document.getElementById("intro-front");
@@ -58,10 +62,10 @@ const FairyTale = () => {
 
 				const progress = Math.min(
 					1,
-					Math.max(0, (windowBottom - sceneTop) / (sceneHeight * 0.4))
+					Math.max(0, (windowBottom - sceneTop) / (sceneHeight * 0.6))
 				);
 
-				walkingGirl.style.transform = `translateX(${progress * 60}vw)`;
+				walkingGirl.style.transform = `translateX(${progress * 50}vw)`;
 			}
 
 			if (scene3) {
@@ -84,7 +88,7 @@ const FairyTale = () => {
 			}
 
 			if (wolfRef.current) {
-				if (scrollY > 5800) {
+				if (scrollY > 5400) {
 					wolfRef.current.style.transform = "translateX(90px) rotate(15deg)";
 				} else {
 					wolfRef.current.style.transform = "translateX(0) rotate(0)";
@@ -119,6 +123,7 @@ const FairyTale = () => {
 					setShowFinalGif(false);
 				}
 			}
+
 			fadeRef.current.addEventListener("transitionend", () => {
 				if (!gifTriggered) {
 					setGifTriggered(true);
@@ -130,6 +135,14 @@ const FairyTale = () => {
 					}, 1000);
 				}
 			});
+			if (scrollY < lastScrollY) {
+				setShowFinalGif(false);
+				setGifTriggered(false);
+				setGifDone(false);
+				setShowInk(false);
+			}
+
+			lastScrollY = scrollY;
 		};
 
 		window.addEventListener("scroll", handleScroll);
@@ -256,6 +269,24 @@ const FairyTale = () => {
 			</section>
 			{/* SCENE 3 */}
 			<section id="scene-3" className="scene scene-3">
+				<motion.div
+					className="scene2-text"
+					initial={{ opacity: 0 }}
+					animate={showKnockText ? { opacity: 1 } : { opacity: 0 }}
+					transition={{ duration: 1 }}
+				>
+					<p className="scene2-normal">
+						<span className="scene2-i">T</span>he air stands still.
+						<br />A chill crawls down her spine.
+						<br />
+						Should she… knock?
+					</p>
+				</motion.div>
+				<audio
+					ref={doorKnockAudioRef}
+					src="/cp-frontend-SophiaRahmoun/assets/scene3-doorknock.mp3"
+					preload="auto"
+				/>
 				<img
 					src="/cp-frontend-SophiaRahmoun/assets/scene3-back.png"
 					className="scene3-back"
@@ -308,7 +339,15 @@ const FairyTale = () => {
 						}
 						alt="door"
 						className="scene3-door"
-						onClick={() => setDoorOpen(true)}
+						onClick={() => {
+							if (!doorClicked) {
+								setDoorClicked(true);
+								doorKnockAudioRef.current.play();
+								doorKnockAudioRef.current.onended = () => {
+									setDoorOpen(true);
+								};
+							}
+						}}
 					/>
 				)}
 			</section>

@@ -12,7 +12,6 @@ const genres = [
 	"fantasie",
 	"avontuur",
 	"horror",
-	"romantiek",
 	"magie",
 	"mythologie",
 	"dieren",
@@ -87,7 +86,6 @@ const Sprookjes = () => {
 
 				<SearchFilter onSearch={setSearchQuery} />
 
-
 				<div className="stories-wrapper" style={{ marginTop: "30px" }}>
 					{filteredStories.map((story) => (
 						<div
@@ -97,7 +95,11 @@ const Sprookjes = () => {
 							style={{ cursor: "pointer" }}
 						>
 							<img
-								src={story.imgThumbnail}
+								src={
+									story.imgThumbnail && story.imgThumbnail.trim() !== ""
+										? story.imgThumbnail
+										: `${import.meta.env.BASE_URL}assets/no-img.png`
+								}
 								alt={story.fairytale}
 								className="story-image"
 							/>

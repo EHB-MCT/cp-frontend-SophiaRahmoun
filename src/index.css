@@ -64,7 +64,7 @@ h1.standard-title {
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	max-width: 70%;
+	max-width: 73%;
 	margin: auto;
 }
 
@@ -769,6 +769,19 @@ h1.standard-title {
 	cursor: pointer;
 	z-index: 5;
 }
+#scene3-text {
+	top: 72%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#scene3-text {
+	opacity: 0;
+}
+
+#scene3-text.visible {
+	opacity: 1;
+}
 
 .scene-4 {
 	position: relative;
@@ -798,9 +811,9 @@ h1.standard-title {
 
 .scene4-lrrh {
 	position: absolute;
-	top: 35%;
+	top: 49%;
 	right: 24%;
-	width: 23%;
+	width: 20%;
 	z-index: 2;
 }
 .scene4-gradient {
