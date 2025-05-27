@@ -6,7 +6,11 @@ const Footer = () => {
 	return (
 		<footer className="footer">
 			<div className="footer-content">
-				<img src="./public/assets/logo.png" alt="Logo" className="logo" />
+				<img
+					src="/cp-frontend-SophiaRahmoun/assets/logo.png"
+					alt="Logo"
+					className="logo"
+				/>
 
 				<div className="footer-text-about">
 					<p className="footer-text">

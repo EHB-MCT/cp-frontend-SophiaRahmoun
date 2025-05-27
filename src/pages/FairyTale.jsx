@@ -88,7 +88,7 @@ const FairyTale = () => {
 			}
 
 			if (wolfRef.current) {
-				if (scrollY > 5400) {
+				if (scrollY > 5200) {
 					wolfRef.current.style.transform = "translateX(90px) rotate(15deg)";
 				} else {
 					wolfRef.current.style.transform = "translateX(0) rotate(0)";

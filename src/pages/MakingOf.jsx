@@ -54,6 +54,15 @@ const MakingOf = () => {
 						</a>
 					</div>
 				</div>
+				<h1 className="standard-title">Video demo</h1>
+				<div className="video-wrapper">
+					<iframe
+						src="https://www.youtube.com/embed/L_6V4UuQLTU"
+						title="YouTube video player"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowFullScreen
+					></iframe>
+				</div>
 
 				<h1 className="standard-title">Extra images</h1>
 

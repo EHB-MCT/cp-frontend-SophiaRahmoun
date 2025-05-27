@@ -2,9 +2,9 @@
 
 One-page scrolling experience based on the classic fairytale “Little Red Riding Hood”, combining interactive storytelling, animations, and sound. Built with React, React Router, Framer Motion, and custom CSS for parallax effects and dynamic UI. Includes a portal page linking to all class projects.
 
-> Online link:[Live,Sophia](https://ehb-mct.github.io/cp-frontend-SophiaRahmoun/fairytale)
-> Repository link: [Repository,Sophia]
-> (https://github.com/EHB-MCT/cp-frontend-SophiaRahmoun)
+>[Live,Sophia](https://ehb-mct.github.io/cp-frontend-SophiaRahmoun/fairytale)
+>[Repository,Sophia](https://github.com/EHB-MCT/cp-frontend-SophiaRahmoun)
+>[Demo](https://youtu.be/L_6V4UuQLTU)
 
 ## Getting started 💃
 

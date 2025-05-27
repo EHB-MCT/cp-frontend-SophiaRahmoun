@@ -44,6 +44,19 @@ const MakingOfTemplate = ({ story, onClose }) => {
 							)}
 						</div>
 					</div>
+					{story.videoExplainer && (
+						<>
+							<h1 className="standard-title">Video Demo</h1>
+							<div className="video-wrapper">
+								<iframe
+									src={`https://www.youtube.com/embed/${story.videoExplainer}`}
+									title="Video Explainer"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen
+								></iframe>
+							</div>
+						</>
+					)}
 
 					{story.imgsExtra?.length > 0 && (
 						<>
