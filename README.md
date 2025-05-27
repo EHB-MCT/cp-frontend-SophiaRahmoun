@@ -16,7 +16,7 @@ One-page scrolling experience based on the classic fairytale “Little Red Ridin
 ## Used Sources 🗃️
 
 - [List-style](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style) used in the Projects overview to style student name's list
-- [Carousel] (https://react-bootstrap.netlify.app/docs/components/carousel/) Used in StoryList.jsx to cycle through random featured stories on the homepage
+- [Carousel](https://react-bootstrap.netlify.app/docs/components/carousel/) Used in StoryList.jsx to cycle through random featured stories on the homepage
 - [Drop Down Button](https://react-bootstrap.netlify.app/docs/components/dropdowns/)used to display filter options for genres in navigation
 - [Uploading images in Cloudinary](https://cloudinary.com/documentation/upload_images) Used to upload images for them to be used in API externally
 - [React Router](https://www.w3schools.com/react/react_router.asp) Used to handle page navigation between Home, Sprookjes, & Fairytale using BrowserRouter, Routes, and Link.
